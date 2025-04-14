@@ -7,14 +7,20 @@ import argparse
 import shutil
 from openai import OpenAI
 from google.cloud import texttospeech as tts
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Có thể thư viện MoviePy chưa được cài đặt đúng cách, thêm xử lý try-except cho việc import
 try:
+    # Thử cách import khác theo gợi ý
+    from moviepy import *
     from moviepy.editor import ImageClip, AudioFileClip, concatenate_videoclips, concatenate_audioclips, CompositeAudioClip
     has_moviepy = True
 except ImportError:
     print("Warning: MoviePy not available. Video generation will be disabled.")
-    print("Try reinstalling MoviePy with: pip install moviepy==2.0.0")
+    print("Try installing MoviePy with: pip install moviepy")
     has_moviepy = False
 
 # Đường dẫn đến file JSON quản lý stories

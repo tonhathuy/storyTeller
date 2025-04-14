@@ -27,18 +27,49 @@ git clone https://github.com/username/storyTeller.git
 cd storyTeller
 ```
 
-2. Cài đặt các phụ thuộc
+2. Tạo và kích hoạt môi trường ảo
 ```bash
-pip install openai requests google-cloud-texttospeech moviepy
+# Tạo môi trường ảo
+python -m venv .venv
+
+# Kích hoạt môi trường ảo (Windows)
+.venv\Scripts\activate
+
+# Kích hoạt môi trường ảo (Linux/Mac)
+source .venv/bin/activate
 ```
 
-3. Thiết lập API key
+3. Cài đặt các phụ thuộc
+```bash
+# Cài đặt tất cả các thư viện từ requirements.txt
+pip install -r requirements.txt
+```
+
+4. Thiết lập API key
+
+**Tùy chọn 1: Sử dụng biến môi trường**
 ```bash
 # API key cho NVIDIA AI
 export NGC_API_KEY=your_nvidia_api_key_here
 
 # File chứng thực Google Cloud để sử dụng Text-to-Speech
 export GOOGLE_APPLICATION_CREDENTIALS=/path/to/your/google-credentials.json
+```
+
+**Tùy chọn 2: Sử dụng file .env (Khuyến nghị)**
+Dự án đã có sẵn file `.env.example` làm mẫu. Sao chép file này thành `.env` và điều chỉnh các giá trị:
+```bash
+# Sao chép file mẫu
+cp .env.example .env
+
+# Mở và chỉnh sửa file .env
+nano .env  # hoặc mở bằng trình soạn thảo văn bản khác
+```
+
+Nội dung của file `.env`:
+```
+NGC_API_KEY=your_nvidia_api_key_here
+GOOGLE_APPLICATION_CREDENTIALS=/path/to/your/google-credentials.json
 ```
 
 ## Cấu trúc thư mục
@@ -57,12 +88,26 @@ export GOOGLE_APPLICATION_CREDENTIALS=/path/to/your/google-credentials.json
 │           └── scene_1.wav   # File âm thanh cho từng cảnh
 ├── cached/                   # Thư mục bộ nhớ cache
 │   └── llm/                  # Cache cho kết quả LLM
+├── bg_music/                 # Thư mục chứa nhạc nền
+│   └── Asphyxia.mp3          # File nhạc nền mặc định
 ├── main.py                   # Mã nguồn chính
+├── requirements.txt          # Danh sách các thư viện cần thiết
+├── .env                      # File chứa biến môi trường (không được commit lên git)
 ├── stories.json              # File quản lý danh sách câu chuyện
 └── README.md                 # Hướng dẫn
 ```
 
 ## Sử dụng
+
+Đảm bảo bạn đã kích hoạt môi trường ảo trước khi chạy các lệnh:
+
+```bash
+# Kích hoạt môi trường (Windows)
+.venv\Scripts\activate
+
+# Kích hoạt môi trường (Linux/Mac)
+source .venv/bin/activate
+```
 
 ### Tạo câu chuyện mới
 
@@ -108,6 +153,12 @@ python main.py --id 01 --force-audio
 python main.py --id 01 --force-video
 ```
 
+### Sử dụng file nhạc nền khác
+
+```bash
+python main.py --id 01 --bg-music path/to/your/music.mp3
+```
+
 ### Bắt buộc tạo lại tất cả (cảnh, hình ảnh, âm thanh, video)
 
 ```bash
@@ -118,6 +169,23 @@ python main.py --id 01 --force-scenes --force-images --force-audio --force-video
 
 ```bash
 python main.py --id 01 --debug
+```
+
+## Sử dụng trong script
+
+Bạn cũng có thể tạo script để tự động hóa các tác vụ:
+
+```bash
+#!/bin/bash
+# Kích hoạt môi trường ảo
+source .venv/bin/activate
+
+# Thiết lập các biến môi trường
+export NGC_API_KEY=your_key_here
+export GOOGLE_APPLICATION_CREDENTIALS=path/to/credentials.json
+
+# Chạy ứng dụng
+python main.py --id 01 --force-video
 ```
 
 ## Format JSON cảnh
@@ -175,6 +243,7 @@ Video được tạo ra bằng cách:
 2. Thời lượng hiển thị của mỗi frame được xác định bởi thời lượng của file âm thanh tương ứng
 3. Mỗi cảnh trong truyện được ghép từ một hình ảnh và một âm thanh
 4. Tất cả các cảnh được ghép lại để tạo thành video hoàn chỉnh
+5. Nhạc nền được thêm vào với âm lượng giảm (20% âm lượng gốc)
 
 ## Hiệu suất và tối ưu hóa
 
@@ -184,19 +253,31 @@ Video được tạo ra bằng cách:
 
 ## Khắc phục sự cố
 
-1. **Lỗi API Key**: Đảm bảo biến môi trường cần thiết đã được thiết lập
+1. **Lỗi môi trường ảo**: Đảm bảo bạn đã kích hoạt môi trường ảo trước khi chạy lệnh
    ```bash
-   export NGC_API_KEY=your_nvidia_api_key_here
-   export GOOGLE_APPLICATION_CREDENTIALS=/path/to/your/google-credentials.json
+   source .venv/bin/activate  # Linux/Mac
+   .venv\Scripts\activate     # Windows
    ```
 
-2. **Lỗi thiếu thư mục**: Các thư mục cần thiết sẽ được tạo tự động khi bạn chạy chương trình
+2. **Lỗi API Key**: Đảm bảo biến môi trường cần thiết đã được thiết lập
+   ```bash
+   # Sử dụng biến môi trường
+   export NGC_API_KEY=your_nvidia_api_key_here
+   export GOOGLE_APPLICATION_CREDENTIALS=/path/to/your/google-credentials.json
+   
+   # Hoặc sử dụng file .env
+   # Tạo file .env với nội dung:
+   # NGC_API_KEY=your_nvidia_api_key_here
+   # GOOGLE_APPLICATION_CREDENTIALS=/path/to/your/google-credentials.json
+   ```
 
-3. **Lỗi định dạng JSON**: Nếu cấu trúc `stories.json` không đúng định dạng, có thể xóa file để tạo lại từ đầu
+3. **Lỗi thiếu thư mục**: Các thư mục cần thiết sẽ được tạo tự động khi bạn chạy chương trình
 
-4. **Lỗi Google TTS**: Nếu gặp lỗi về giới hạn kích thước text, có thể cần chia nhỏ đoạn văn bản trước khi gửi đến API
+4. **Lỗi định dạng JSON**: Nếu cấu trúc `stories.json` không đúng định dạng, có thể xóa file để tạo lại từ đầu
 
-5. **Lỗi tạo video**: Đảm bảo có đủ hình ảnh và âm thanh với cùng số thứ tự cảnh, và moviepy đã được cài đặt đúng
+5. **Lỗi Google TTS**: Nếu gặp lỗi về giới hạn kích thước text, có thể cần chia nhỏ đoạn văn bản trước khi gửi đến API
+
+6. **Lỗi tạo video**: Đảm bảo có đủ hình ảnh và âm thanh với cùng số thứ tự cảnh, và moviepy đã được cài đặt đúng
 
 ## Mở rộng
 

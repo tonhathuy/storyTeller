@@ -1,4 +1,14 @@
+# API và Request
 openai>=1.0.0
 requests==2.32.3
+
+# Text-to-Speech
 google-cloud-texttospeech==2.25.1
+
+# Video Processing
 moviepy==1.0.3
+Pillow>=9.0.0
+numpy>=1.20.0
+
+# Utilities
+python-dotenv==1.0.0
