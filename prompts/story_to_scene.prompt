@@ -1,0 +1,32 @@
+You are given the following story:
+
+[PASTE YOUR STORY HERE]
+
+Your task is to split this story into distinct scenes. For each scene, create an entry in the following JSON format:
+
+[
+  {
+    "index": 1,
+    "content": "<Scene 1 text>",
+    "image_description": "<Short description of the image for Scene 1>"
+  },
+  {
+    "index": 2,
+    "content": "<Scene 2 text>",
+    "image_description": "<Short description of the image for Scene 2>"
+  },
+  ...
+]
+
+Requirements:
+1. Each scene must be labeled with a sequential `index` starting from 1.
+2. `content` should be the text for that scene.
+3. `image_description` should be a concise, relevant illustration note describing how that scene might be visually depicted, and the description will be changed to English.
+4. Return only valid JSON as the final output (no extra text or explanations).
+
+option: 
+- `General_image_description`: anime style and create a series of images with a unified style, more vivid and cinematic photos, 
+- `content`: will be used to tell a story so write engagingly
+Note: 
+- add `General_image_description` for each `image_description` and descriptions must be consistent (for example person A in image 1 has short hair, image 2 cannot have long hair)
+- Scenes should be divided into appropriate numbers ( ~ 50 - 70 scenes ) to display the content of each image.

@@ -1,0 +1,70 @@
+{
+  "01": {
+    "story_id": "01",
+    "story_path": "data/01/story.txt",
+    "cached_llm_path": "cached/llm/7558101536723201021.json",
+    "prompt": "prompts/story_to_scene.prompt",
+    "images_path": "data/01/images/",
+    "audio_path": "data/01/audio",
+    "video_path": "data/01/video.mp4"
+  },
+  "02": {
+    "story_id": "02",
+    "story_path": "data/02/story.txt",
+    "cached_llm_path": "cached/llm/02_2256583619.json",
+    "prompt": "prompts/story_to_scene.prompt",
+    "images_path": "data/02/images"
+  },
+  "03": {
+    "story_id": "03",
+    "story_path": "data/03/story.txt",
+    "cached_llm_path": "cached/llm/03_3273173399.json",
+    "prompt": "prompts/story_to_scene.prompt",
+    "images_path": "data/03/images"
+  },
+  "04": {
+    "story_id": "04",
+    "story_path": "data/04/story.txt",
+    "cached_llm_path": "cached/llm/04_7161896046.json",
+    "prompt": "prompts/story_to_scene.prompt",
+    "images_path": "data/04/images",
+    "audio_path": "data/04/audio",
+    "video_path": "data/04/video.mp4"
+  },
+  "05": {
+    "story_id": "05",
+    "story_path": "data/05/story.txt",
+    "cached_llm_path": "cached/llm/05_795362827.json",
+    "prompt": "prompts/story_to_scene.prompt",
+    "images_path": "data/05/images",
+    "audio_path": "data/05/audio",
+    "video_path": "data/05/video.mp4"
+  },
+  "06": {
+    "story_id": "06",
+    "story_path": "data/06/story.txt",
+    "cached_llm_path": "cached/llm/06_7322115864.json",
+    "prompt": "prompts/story_to_scene.prompt",
+    "images_path": "data/06/images",
+    "audio_path": "data/06/audio",
+    "video_path": "data/06/video.mp4"
+  },
+  "07": {
+    "story_id": "07",
+    "story_path": "data/07/story.txt",
+    "cached_llm_path": "cached/llm/07_6576583556.json",
+    "prompt": "prompts/story_to_scene.prompt",
+    "images_path": "data/07/images",
+    "audio_path": "data/07/audio",
+    "video_path": "data/07/video.mp4"
+  },
+  "08": {
+    "story_id": "08",
+    "story_path": "data/08/story.txt",
+    "cached_llm_path": "cached/llm/08_1165932373.json",
+    "prompt": "prompts/story_to_scene.prompt",
+    "images_path": "data/08/images",
+    "audio_path": "data/08/audio",
+    "video_path": "data/08/video.mp4"
+  }
+}

@@ -1,0 +1,52 @@
+# Ignore data directory
+data/*
+
+# Ignore cached directory
+cached/*
+
+# Ignore environment files
+.ENV
+.env
+
+# Ignore sensitive credentials
+test_api/second-capsule-456707-h2-beeb0ceb5c11.json
+
+# Temporary files
+temp-audio.m4a
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db 

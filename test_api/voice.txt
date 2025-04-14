@@ -1,0 +1,19 @@
+------------------------ Voices: 18 ------------------------
+vi-VN    | vi-VN-Chirp3-HD-Aoede    | FEMALE   | 24,000 Hz
+vi-VN    | vi-VN-Chirp3-HD-Charon   | MALE     | 24,000 Hz
+vi-VN    | vi-VN-Chirp3-HD-Fenrir   | MALE     | 24,000 Hz
+vi-VN    | vi-VN-Chirp3-HD-Kore     | FEMALE   | 24,000 Hz
+vi-VN    | vi-VN-Chirp3-HD-Leda     | FEMALE   | 24,000 Hz
+vi-VN    | vi-VN-Chirp3-HD-Orus     | MALE     | 24,000 Hz
+vi-VN    | vi-VN-Chirp3-HD-Puck     | MALE     | 24,000 Hz
+vi-VN    | vi-VN-Chirp3-HD-Zephyr   | FEMALE   | 24,000 Hz
+vi-VN    | vi-VN-Neural2-A          | FEMALE   | 24,000 Hz
+vi-VN    | vi-VN-Neural2-D          | MALE     | 24,000 Hz
+vi-VN    | vi-VN-Standard-A         | FEMALE   | 24,000 Hz
+vi-VN    | vi-VN-Standard-B         | MALE     | 24,000 Hz
+vi-VN    | vi-VN-Standard-C         | FEMALE   | 24,000 Hz
+vi-VN    | vi-VN-Standard-D         | MALE     | 24,000 Hz
+vi-VN    | vi-VN-Wavenet-A          | FEMALE   | 24,000 Hz
+vi-VN    | vi-VN-Wavenet-B          | MALE     | 24,000 Hz
+vi-VN    | vi-VN-Wavenet-C          | FEMALE   | 24,000 Hz
+vi-VN    | vi-VN-Wavenet-D          | MALE     | 24,000 Hz
